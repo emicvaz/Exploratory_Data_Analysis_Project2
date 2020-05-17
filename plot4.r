@@ -10,13 +10,13 @@ coalCombustion <- (combustionRelated & coalRelated)
 combustionSCC <- SCC[coalCombustion,]$SCC
 combustionNEI <- NEI[NEI$SCC %in% combustionSCC,]
 
-ggp <- ggplot(combustionNEI,aes(factor(year),Emissions/10^5)) +
+combustion_plot <- ggplot(combustionNEI,aes(factor(year),Emissions/10^5)) +
         geom_bar(stat="identity",fill="grey",width=0.75) +
         theme_bw() +  guides(fill=FALSE) +
         labs(x="year", y=expression("Total  Emission (10OK Tons)")) + 
         labs(title=expression("Total Annual Coal Combustion Emissions in the US from 1999 to2008"))
 
-print(ggp)
+print(combustion_plot)
 
         
 #Emissions from coal combustion related sources have decreased from 600,000 to below 400,000 from 1999-2008.
